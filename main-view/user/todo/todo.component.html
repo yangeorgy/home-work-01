@@ -1,0 +1,7 @@
+
+
+<div  style="border: 1px solid black;padding:5px;">
+    <strong>Title:</strong> {{todo.title}} <br>
+    <strong>Completed:</strong> {{todo.completed}} 
+    <button *ngIf="!todo.completed" (click)="markCompleted(todo.id, todo.userId)">Mark Completed</button>
+</div>

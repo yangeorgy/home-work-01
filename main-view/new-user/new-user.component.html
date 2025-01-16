@@ -1,0 +1,8 @@
+<div style="border: 1px solid black;padding:5px;">
+    <h3>Add new User</h3>
+    Name: <input #newUserName type="text"><br>
+    Email: <input #newUserEmail type="text"><br>
+    <button (click)="cancelAddUser()">Cancel</button>
+    <button (click)="addNewUser(newUserName.value, newUserEmail.value)" >Add</button>
+   
+</div>

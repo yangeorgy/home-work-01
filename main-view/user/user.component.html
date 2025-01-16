@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="left">
+
+        <div style="padding:5px;" [ngClass]="[borderColorCompletedTodos ? 'userBorderGreen' : 'userBorderRed',  isOrange ? 'bgIsOrange' : '' ]" >
+
+            <p (click)="togglePostTodo(user.id)"><strong> ID :{{user.id}}</strong></p>
+        
+            <label for="userNameInput">Name: </label>
+            <input name="userNameInput" #userNameInput type="text" value="{{ user.name }}"><br>
+        
+            <label for="userEmailInput">Email: </label>
+            <input type="text" name="userEmailInput" #userEmailInput value="{{ user.email }}"><br>
+        
+        
+            <button (click)="toggleDetails()">Other Data</button>
+            <div [hidden]="!showDetails">
+                <label for="userStreetInput">Street: </label>
+                <input type="text" name="userStreetInput" #userStreetInput value="{{ user.address.street }}"><br>
+                
+                <label for="userCityInput">City: </label>
+                <input type="text" name="userCityInput" #userCityInput value="{{ user.address.city }}"><br>
+        
+                <label for="userZipcodeInput">Zip Code: </label>
+                <input type="text" name="userZipcodeInput" #userZipcodeInput value="{{ user.address.zipcode }}"><br>
+            </div>
+            <button (click)="updateUser(user.id , userNameInput.value, userEmailInput.value, userStreetInput.value, userCityInput.value, userZipcodeInput.value)">Update</button>
+            <button (click)="deleteUser(user.id)">Delete</button>
+        </div>
+
+    </div>
+    <div  class="right">
+        
+        <div [hidden]="!showPostTodo" class="row">
+            <app-new-todo [userId]="user.id" (todoSaved)="onChildTodoSaved($event)"  (todoCancelled)="onChildTodoCancelled()" [hidden]="!addTodoVisibility"></app-new-todo>
+            <div *ngIf="showCurrTodos">
+                <button (click)="AddTodo()" >Add New Todo</button>
+                <ul>
+                    <li *ngFor="let todo of todos">
+                        <app-todo [markedCompleted]="postMarkedCompleted()" [todo]="todo"></app-todo>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div [hidden]="!showPostTodo" class="row">
+            <button (click)="togglePostsVisibility()">Add New post</button>
+            <app-new-post [hidden]="!postVisibility" (postSaved)="onChildPostSaved($event)"  (postCancelled)="onChildPostCancelled()" [userId]="user.id"></app-new-post>
+            <div [hidden]="postVisibility">  
+                <div *ngFor="let post of posts">
+                    <app-post [post]="post"></app-post>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

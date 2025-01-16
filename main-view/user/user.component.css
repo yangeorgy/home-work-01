@@ -1,0 +1,36 @@
+.userBorderRed{
+    border: 1px solid red;
+}
+
+.userBorderGreen{
+    border: 1px solid green;
+}
+
+.bgIsOrange{
+    background-color: orange;
+}
+
+
+
+
+.container {
+  display: flex; 
+  width:40%;
+}
+
+.left {
+  width: 50%;
+}
+
+.right {
+  width: 50%; 
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; 
+}
+
+.row {
+  flex: 1; 
+  margin: 5px; 
+  border: 1px solid black;
+}

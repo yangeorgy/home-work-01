@@ -1,0 +1,7 @@
+<div [hidden]="!true" style="border: 1px solid black;padding:5px;">
+    <h3>Add new post</h3>
+    Title: <input #newPostTitle type="text"><br>
+    Body: <input #newPostBody type="text"><br>
+    <button (click)="cancelPost()">Cancel</button>
+    <button (click)="addPost(userId, newPostTitle.value, newPostBody.value)">Add</button>
+</div>

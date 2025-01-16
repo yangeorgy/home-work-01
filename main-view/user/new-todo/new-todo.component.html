@@ -1,0 +1,8 @@
+<div style="border: 1px solid black;padding:5px;">
+    <h3>Add new Todo</h3>
+    Title: <input type="text" #newTodo><br>
+    <button (click)="CancelAddTodo()">Cancel</button>
+    <button (click)="AddTodo(newTodo.value, userId)">Add</button>
+</div>
+
+

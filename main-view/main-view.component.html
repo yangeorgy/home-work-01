@@ -1,0 +1,16 @@
+<div style="border: 1px solid black;padding:5px;border-radius: 25px;">
+    Search: <input typle="text"  [(ngModel)]="searchParam" ><button style="margin-left:60px" (click)="addNewUser()">Add New User</button>
+    
+    <app-new-user (addUserCanceled)="toggleUserView()" [hidden]="!showNewUser"></app-new-user>
+
+
+    <div *ngFor="let user of filteredUsers">
+        <app-user [user]="user" (delUserClicked)="reRndrView($event)" ></app-user>
+    </div>
+
+</div>
+
+
+
+
+
