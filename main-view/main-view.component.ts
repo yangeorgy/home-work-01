@@ -48,8 +48,7 @@ export class MainViewComponent implements OnInit {
   }
 
   get filteredUsers() {
-    return this.users.filter(person => person.name.toLowerCase().includes(this.searchParam.toLowerCase())        //person.name.toLowerCase().includes(this.searchParam.toLowerCase())
-         //||  person.mail.toLowerCase().includes(this.searchParam.toLowerCase())
+    return this.users.filter(person => person.name.toLowerCase().includes(this.searchParam.toLowerCase())       
     );
   }
 
